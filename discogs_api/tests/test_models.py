@@ -17,6 +17,47 @@ class ModelsTestCase(DiscogsClientTestCase):
         r = self.d.release(1)
         self.assertEqual(r.title, 'Stockholm')
 
+    def test_release_with_subtracks(self):
+        """Releases with subtracks in the tracklist are parsed correctly"""
+        r = self.d.release(154321)
+        self.assertEqual(6, len(r.tracklist))
+
+        self.assertEqual(2, len(r.tracklist[2].subtracks))
+        self.assertEqual('First Fragment', r.tracklist[2].subtracks[0].title)
+        self.assertEqual('3', r.tracklist[2].subtracks[0].position)
+        self.assertEqual('3:05', r.tracklist[2].subtracks[0].duration)
+        self.assertEqual('Second Fragment', r.tracklist[2].subtracks[1].title)
+        self.assertEqual('4', r.tracklist[2].subtracks[1].position)
+        self.assertEqual('3:00', r.tracklist[2].subtracks[1].duration)
+
+        self.assertEqual(4, len(r.tracklist[3].subtracks))
+        self.assertEqual('Part One', r.tracklist[3].subtracks[0].title)
+        self.assertEqual('5', r.tracklist[3].subtracks[0].position)
+        self.assertEqual('3:06', r.tracklist[3].subtracks[0].duration)
+        self.assertEqual('Part Two', r.tracklist[3].subtracks[1].title)
+        self.assertEqual('6', r.tracklist[3].subtracks[1].position)
+        self.assertEqual('2:02', r.tracklist[3].subtracks[1].duration)
+        self.assertEqual('Part Three', r.tracklist[3].subtracks[2].title)
+        self.assertEqual('7', r.tracklist[3].subtracks[2].position)
+        self.assertEqual('4:59', r.tracklist[3].subtracks[2].duration)
+        self.assertEqual('Part Four', r.tracklist[3].subtracks[3].title)
+        self.assertEqual('8', r.tracklist[3].subtracks[3].position)
+        self.assertEqual('8:49', r.tracklist[3].subtracks[3].duration)
+
+        self.assertEqual(4, len(r.tracklist[5].subtracks))
+        self.assertEqual('No. 1', r.tracklist[5].subtracks[0].title)
+        self.assertEqual('10', r.tracklist[5].subtracks[0].position)
+        self.assertEqual('3:00', r.tracklist[5].subtracks[0].duration)
+        self.assertEqual('No. 2', r.tracklist[5].subtracks[1].title)
+        self.assertEqual('11', r.tracklist[5].subtracks[1].position)
+        self.assertEqual('2:34', r.tracklist[5].subtracks[1].duration)
+        self.assertEqual('No. 3', r.tracklist[5].subtracks[2].title)
+        self.assertEqual('12', r.tracklist[5].subtracks[2].position)
+        self.assertEqual('3:30', r.tracklist[5].subtracks[2].duration)
+        self.assertEqual('No. 4', r.tracklist[5].subtracks[3].title)
+        self.assertEqual('13', r.tracklist[5].subtracks[3].position)
+        self.assertEqual('3:55', r.tracklist[5].subtracks[3].duration)
+
     def test_master(self):
         """Masters can be fetched and parsed"""
         m = self.d.master(4242)
