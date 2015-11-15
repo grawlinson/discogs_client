@@ -58,6 +58,15 @@ class ModelsTestCase(DiscogsClientTestCase):
         self.assertEqual('13', r.tracklist[5].subtracks[3].position)
         self.assertEqual('3:55', r.tracklist[5].subtracks[3].duration)
 
+    def test_track_type_is_set(self):
+        r = self.d.release(154321)
+        self.assertEqual('track', r.tracklist[0].track_type)
+        self.assertEqual('track', r.tracklist[1].track_type)
+        self.assertEqual('index', r.tracklist[2].track_type)
+        self.assertEqual('index', r.tracklist[3].track_type)
+        self.assertEqual('track', r.tracklist[4].track_type)
+        self.assertEqual('index', r.tracklist[5].track_type)
+
     def test_master(self):
         """Masters can be fetched and parsed"""
         m = self.d.master(4242)

@@ -695,6 +695,7 @@ class Track(SecondaryAPIObject):
     artists = ListField('Artist')
     credits = ListField('Artist', key='extraartists')
     subtracks = ListField('Track', key='sub_tracks')
+    track_type = SimpleField(key='type_')
 
     def __repr__(self):
         return self.repr_str('<Track {0!r} {1!r}>'.format(self.position, self.title))
