@@ -578,6 +578,13 @@ class User(PrimaryAPIObject):
         resp = self.client._get(self.fetch('collection_folders_url'))
         return [CollectionFolder(self.client, d) for d in resp['folders']]
 
+    def collection_fields(self):
+        resp = self.client._get(self.fetch('collection_fields_url'))
+        return resp['fields']
+
+    def collection_value(self):
+        return self.client._get("{0}/collection/value".format(self.data['resource_url']))
+
     def __repr__(self):
         return self.repr_str('<User {0!r} {1!r}>'.format(self.id, self.username))
 
