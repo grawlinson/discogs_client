@@ -479,6 +479,10 @@ class Release(PrimaryAPIObject):
     credits = ListField('Artist', key='extraartists')
     labels = ListField('Label')
     companies = ListField('Label')
+    released_formatted = SimpleField()
+    released = SimpleField()
+    estimated_weight = SimpleField()
+    date_added = SimpleField()
 
     def __init__(self, client, dict_):
         super(Release, self).__init__(client, dict_)
