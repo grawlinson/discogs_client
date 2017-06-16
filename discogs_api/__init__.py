@@ -4,4 +4,4 @@ __version__ = '0.0.2'
 
 from discogs_api.client import Client
 from discogs_api.models import Artist, Release, Master, Label, User, \
-    Listing, Track, Price, Video
+    Listing, Track, Price, Video, List, ListItem
