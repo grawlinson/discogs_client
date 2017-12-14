@@ -70,7 +70,7 @@ class UserTokenRequestsFetcher(Fetcher):
         return resp.content, resp.status_code
 
 
-class OAuth2Fetcher(Fetcher):
+class OAuth1Fetcher(Fetcher):
     """Fetches via HTTP + OAuth 1.0a from the Discogs API."""
     def __init__(self, consumer_key, consumer_secret, token=None, secret=None):
         self.client = oauth1.Client(consumer_key, client_secret=consumer_secret)

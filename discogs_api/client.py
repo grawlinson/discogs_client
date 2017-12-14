@@ -12,7 +12,7 @@ except ImportError:
 from discogs_api import models
 from discogs_api.exceptions import ConfigurationError, HTTPError, AuthorizationError
 from discogs_api.utils import update_qs
-from discogs_api.fetchers import RequestsFetcher, OAuth2Fetcher, UserTokenRequestsFetcher
+from discogs_api.fetchers import RequestsFetcher, OAuth1Fetcher, UserTokenRequestsFetcher
 
 
 class Client(object):
@@ -35,7 +35,7 @@ class Client(object):
             self._fetcher = UserTokenRequestsFetcher(user_token)
 
     def set_consumer_key(self, consumer_key, consumer_secret):
-        self._fetcher = OAuth2Fetcher(consumer_key, consumer_secret)
+        self._fetcher = OAuth1Fetcher(consumer_key, consumer_secret)
 
     def set_token(self, token, secret):
         try:
