@@ -20,7 +20,7 @@ We will cover both forms of authentication below.
 This is the more simple of the two methods of authenticating. Assuming you have generated a Discogs User Token in your Discogs developer settings, you can simply supply your token to the `Client` class:
 
 ```python
-import discogs_client as dc
+import discogs_api as dc
 ds = dc.Client('my_user_agent/1.0', user_token='my_user_token')
 ```
 
@@ -34,7 +34,7 @@ A Discogs consumer key and consumer secret are required for OAuth, and we can su
 
 Begin by importing the client library:
 ```python
-import discogs_client as dc
+import discogs_api as dc
 ```
 
 1. Instantiating the `Client` class with the consumer key and secret:

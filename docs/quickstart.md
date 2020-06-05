@@ -3,8 +3,8 @@
 ### Instantiating the client object
 
 ```python
->>> import discogs_client
->>> ds = discogs_client.Client('ExampleApplication/0.1')
+>>> import discogs_api
+>>> ds = discogs_api.Client('ExampleApplication/0.1')
 ```
 
 The string passed into the `Client` class is your User-Agent. A User-Agent is

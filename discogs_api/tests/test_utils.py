@@ -2,8 +2,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import unittest
 from datetime import datetime
-from discogs_client.tests import DiscogsClientTestCase
-from discogs_client import utils
+from discogs_api.tests import DiscogsClientTestCase
+from discogs_api import utils
 
 
 class UtilsTestCase(DiscogsClientTestCase):

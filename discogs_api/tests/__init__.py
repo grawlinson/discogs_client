@@ -1,8 +1,8 @@
 import unittest
 import json
 import os
-from discogs_client import Client
-from discogs_client.fetchers import LoggingDelegator, FilesystemFetcher, \
+from discogs_api import Client
+from discogs_api.fetchers import LoggingDelegator, FilesystemFetcher, \
     MemoryFetcher
 
 
@@ -43,7 +43,7 @@ class DiscogsClientTestCase(unittest.TestCase):
 
 
 def suite():
-    from discogs_client.tests import test_core, test_models, test_fetchers
+    from discogs_api.tests import test_core, test_models, test_fetchers
     suite = unittest.TestSuite(test_core.suite())
     suite = unittest.TestSuite(test_models.suite())
     suite = unittest.TestSuite(test_fetchers.suite())

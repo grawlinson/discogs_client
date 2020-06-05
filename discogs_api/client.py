@@ -9,10 +9,10 @@ except ImportError:
     # python3
     from urllib.parse import urlencode
 
-from discogs_client import models
-from discogs_client.exceptions import ConfigurationError, HTTPError, AuthorizationError
-from discogs_client.utils import update_qs
-from discogs_client.fetchers import RequestsFetcher, OAuth2Fetcher, UserTokenRequestsFetcher
+from discogs_api import models
+from discogs_api.exceptions import ConfigurationError, HTTPError, AuthorizationError
+from discogs_api.utils import update_qs
+from discogs_api.fetchers import RequestsFetcher, OAuth2Fetcher, UserTokenRequestsFetcher
 
 
 class Client(object):
