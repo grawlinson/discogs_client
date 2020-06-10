@@ -4,6 +4,9 @@ This is a Python interface to the Discogs [REST API][0]. It is intended as a dro
 
 It enables you to query the Discogs database for information on artists, releases, labels, users, Marketplace listings, and more. It also supports OAuth 1.0a authorization, which allows you to change user data such as profile information, collections and wantlists, inventory, and orders.
 
+[![Build Status](https://travis-ci.org/grawlinson/python-discogs-api.svg?branch=master)](https://travis-ci.org/grawlinson/python-discogs-api)
+[![Coverage Status](https://coveralls.io/repos/github/grawlinson/python-discogs-api/badge.svg?branch=master)](https://coveralls.io/github/grawlinson/python-discogs-api?branch=master)
+
 ## Installation
 
 Install the client from PyPI using your favorite package manager.
