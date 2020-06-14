@@ -50,6 +50,9 @@ class RequestsFetcher(Fetcher):
     """Fetches via HTTP from the Discogs API."""
     def fetch(self, client, method, url, data=None, headers=None, json=True):
         resp = requests.request(method, url, data=data, headers=headers)
+        self.rate_limit = resp.headers.get('X-Discogs-Ratelimit')
+        self.rate_limit_used = resp.headers.get('X-Discogs-Ratelimit-Used')
+        self.rate_limit_remaining = resp.headers.get('X-Discogs-Ratelimit-Remaining')
         return resp.content, resp.status_code
 
 
@@ -61,6 +64,9 @@ class UserTokenRequestsFetcher(Fetcher):
     def fetch(self, client, method, url, data=None, headers=None, json=True):
         resp = requests.request(method, url, params={'token':self.user_token},
                                 data=data, headers=headers)
+        self.rate_limit = resp.headers.get('X-Discogs-Ratelimit')
+        self.rate_limit_used = resp.headers.get('X-Discogs-Ratelimit-Used')
+        self.rate_limit_remaining = resp.headers.get('X-Discogs-Ratelimit-Remaining')
         return resp.content, resp.status_code
 
 
@@ -93,6 +99,9 @@ class OAuth2Fetcher(Fetcher):
                                               body=data, headers=headers)
 
         resp = request(method, uri, headers=headers, data=body)
+        self.rate_limit = resp.headers.get('X-Discogs-Ratelimit')
+        self.rate_limit_used = resp.headers.get('X-Discogs-Ratelimit-Used')
+        self.rate_limit_remaining = resp.headers.get('X-Discogs-Ratelimit-Remaining')
         return resp.content, resp.status_code
 
 
