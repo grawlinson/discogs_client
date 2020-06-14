@@ -2,7 +2,5 @@ six
 PyYAML
 coverage
 coveralls
-docopt
 requests
 oauthlib
-sh
